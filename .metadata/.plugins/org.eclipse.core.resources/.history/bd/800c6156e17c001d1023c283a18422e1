@@ -1,0 +1,83 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import model.model_khach_hang;
+
+public class view extends JFrame{
+	private model_khach_hang model;
+	
+	
+	
+	
+	
+	public view() {
+		this.model = new model_khach_hang();
+		this.init();
+		this.setVisible(true);
+	}
+	public void init() {
+		
+		this.setTitle("Khach_Hang");
+		this.setSize(400,300);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	//JP_KHACHHANG 
+		//Nhap ten
+		JPanel JP_name = new JPanel();
+		JLabel JLB_name = new JLabel("NAME: ");	
+		JTextField JT_name = new JTextField(10);
+		JP_name.add(JLB_name);
+		JP_name.add(JT_name);
+		//nhap cccd
+		JPanel JP_cccd = new JPanel();
+		JLabel JLB_cccd = new JLabel("CCCD: ");
+		JTextField JT_cccd = new JTextField(10);
+		JP_cccd.add(JLB_cccd);
+		JP_cccd.add(JT_cccd);
+		
+		//nhap phong
+		JPanel JP_phongkhach = new JPanel();
+		JLabel JLB_phongkhach = new JLabel("PHONG: ");
+		JTextField JT_phongkhach = new JTextField(3);
+		JP_phongkhach.add(JLB_phongkhach);
+		JP_phongkhach.add(JT_phongkhach);
+		
+		
+		Container con=this.getContentPane();
+		con.add(JP_name,"North");
+		con.add(JP_cccd,"Center");
+		con.add(JP_phongkhach,"South");
+		
+		this.pack();
+		
+		
+		
+		/*JPanel JP_khachhang = new JPanel();
+		JP_khachhang.setLayout(new GridLayout(3,1));
+		JP_khachhang.add(JP_name);
+		JP_khachhang.add(JP_cccd);
+		JP_khachhang.add(JP_phongkhach);
+		
+		//SHOW PHÒNG
+		JPanel JP_phong = new JPanel();
+		
+		
+		
+		
+		
+		this.setLayout(new BorderLayout());
+		this.add(JP_khachhang,BorderLayout.WEST);
+		this.add(JP_phong,BorderLayout.SOUTH);*/
+		
+	}
+
+}

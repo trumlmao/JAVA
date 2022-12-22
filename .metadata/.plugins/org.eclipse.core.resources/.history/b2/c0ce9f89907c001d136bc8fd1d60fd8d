@@ -1,0 +1,37 @@
+package GUI;
+
+public class khachhang {
+	
+	private String name;
+	private double sdt;
+	private double cccd;
+	public khachhang() {
+		super();
+	}
+	public khachhang(String name, double sdt, double cccd) {
+		super();
+		this.name = name;
+		this.sdt = sdt;
+		this.cccd = cccd;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getSdt() {
+		return sdt;
+	}
+	public void setSdt(double sdt) {
+		this.sdt = sdt;
+	}
+	public double getCccd() {
+		return cccd;
+	}
+	public void setCccd(double cccd) {
+		this.cccd = cccd;
+	}
+	
+	
+}

@@ -1,0 +1,68 @@
+package GUI;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class caculator extends JFrame {
+	public  caculator() {
+		this.setTitle("caculator");
+		this.setSize(300,500);
+		this.setLocationRelativeTo(null);
+		
+		
+		
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		JTextField jt = new JTextField(50);
+		
+		JButton Jb0 = new JButton("0");
+		JButton Jb1 = new JButton("1");
+		JButton Jb2 = new JButton("2");
+		JButton Jb3 = new JButton("3");
+		JButton Jb4 = new JButton("4");
+		JButton Jb5 = new JButton("5");
+		JButton Jb6 = new JButton("6");
+		JButton Jb7 = new JButton("7");
+		JButton Jb8 = new JButton("8");
+		JButton Jb9 = new JButton("9");
+		JButton Jb_cong = new JButton("+");
+		JButton Jb_tru = new JButton("-");
+		JButton Jb_nhan = new JButton("*");
+		JButton Jb_chia = new JButton("/");
+		JButton Jb_bang = new JButton("=");
+		
+		this.setLayout(new GridLayout());
+		
+		this.add(jt);
+		this.add(Jb0);
+		this.add(Jb1);
+		this.add(Jb2);
+		this.add(Jb3);
+		this.add(Jb4);
+		this.add(Jb5);
+		this.add(Jb6);
+		this.add(Jb7);
+		this.add(Jb8);
+		this.add(Jb9);
+		this.add(Jb_cong);
+		this.add(Jb_tru);
+		this.add(Jb_nhan);
+		this.add(Jb_chia);
+		this.add(Jb_bang);
+		
+		
+		
+		
+		
+		
+		this.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new caculator();
+	}
+}

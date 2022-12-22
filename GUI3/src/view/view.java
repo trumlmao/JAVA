@@ -7,10 +7,14 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import model.model_khach_hang;
 
@@ -34,8 +38,11 @@ public class view extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	//JP_KHACHHANG 
 		//button
-		
-		JButton JB_add = new JButton("add");
+		JPanel JP_but = new JPanel();
+		JButton JB_add = new JButton("Add");
+		JButton JB_save = new JButton("Save");
+		JP_but.add(JB_add);
+		JP_but.add(JB_save);
 		
 		//Nhap ten
 		JPanel JP_name = new JPanel();
@@ -57,23 +64,42 @@ public class view extends JFrame{
 		JP_phongkhach.add(JLB_phongkhach);
 		JP_phongkhach.add(JT_phongkhach);
 		
+		
+		
+		//nhap menu
+		JMenuBar menubar = new JMenuBar();
+		setJMenuBar(menubar);
+		JMenu mnuSEV = new JMenu("SEV");
+		JMenu mnuSOM = new JMenu("SOME");
+		menubar.add(mnuSEV);
+		menubar.add(mnuSOM);
+		JMenuItem mnuNhanvien = new JMenuItem("Khach hang");
+		JMenuItem mnuPhong = new JMenuItem("nhanvien");
+		mnuSEV.add(mnuNhanvien);
+		mnuSEV.add(mnuPhong);
+		
+		
 
 		//SHOW PHÒNG
 		JPanel JF_phong = new JPanel();
 		//sample data / table
-		String[][] data = {{"DUNG","01234","123"},{"Anh","03124","124"}};
-		String[] colum = new String[]{"Name","CCCD","Phong"};
+		String[][] data = {{"123","dọn dẹp"," "," "},{"124","trống"," ",""},{"125","Sử dụng","VĂN A","0001"}};
+		String[] colum = new String[]{"Phòng","Tình Trạng","Khách Hàng","CCCD"};
 		JTable JTB_table = new JTable(data,colum);
 		JF_phong.add(new JScrollPane(JTB_table));
-		JF_phong.add(JTB_table);
+		
+		
+		DefaultTableModel dm = new DefaultTableModel();
+		
 		
 		//JP_khach hang North Layout set 
 		JPanel JP_khachhang = new JPanel();
 		JP_khachhang.setLayout(new GridLayout(4,1));
+		JP_khachhang.add(JP_phongkhach);
 		JP_khachhang.add(JP_name);
 		JP_khachhang.add(JP_cccd);
-		JP_khachhang.add(JP_phongkhach);
-		JP_khachhang.add(JB_add);
+		
+		JP_khachhang.add(JP_but);
 		
 		
 		
@@ -85,6 +111,8 @@ public class view extends JFrame{
 		this.add(JP_khachhang,BorderLayout.WEST);
 		
 		this.add(JF_phong,BorderLayout.CENTER);
+		this.setJMenuBar(menubar);
+		this.pack();
 		
 	}
 	

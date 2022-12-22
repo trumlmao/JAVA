@@ -1,0 +1,63 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import model.model_khach_hang;
+
+public class view extends JFrame{
+	private model_khach_hang model;
+	
+	
+	
+	
+	
+	public view() {
+		this.model = new model_khach_hang();
+		this.init();
+		this.setVisible(true);
+	}
+	public void init() {
+		
+		this.setTitle("Khach_Hang");
+		this.setSize(400,300);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	//JP_KHACHHANG 
+		
+		JPanel JP_name = new JPanel();
+		JLabel JLb = new JLabel("NAME: ");	
+		JTextField JT1 = new JTextField();
+		JP_name.add(JLb);
+		JP_name.add(JT1);
+		
+		JTextField JT2 = new JTextField();
+		
+		
+		JLabel JLb2 = new JLabel("CCCD: ");
+		JPanel JP_khachhang = new JPanel();
+		JP_khachhang.setLayout(new GridLayout(1,2));
+		JP_khachhang.add(JP_name);
+		
+		
+		JP_khachhang.add(JLb2);
+		JP_khachhang.add(JT2);
+		/*JButton JB1 = new JButton();
+		JP_khachhang.add(JB1);*/
+		
+		
+		
+		
+		this.setLayout(new BorderLayout());
+		this.add(JP_khachhang,BorderLayout.WEST);
+		
+	}
+
+}

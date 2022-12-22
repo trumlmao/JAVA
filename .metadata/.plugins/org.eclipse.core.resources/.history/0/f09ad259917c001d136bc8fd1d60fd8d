@@ -1,0 +1,51 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import model.model_khach_hang;
+
+public class view extends JFrame{
+	private model_khach_hang model;
+	
+	
+	
+	
+	
+	public view() {
+		this.model = new model_khach_hang();
+		this.init();
+		this.setVisible(true);
+	}
+	public void init() {
+		
+		this.setTitle("Khach_Hang");
+		this.setSize(800,600);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	//JP_KHACHHANG 
+		JPanel JP_khachhang = new JPanel(); 
+		JTextField JT1 = new JTextField();
+		JP_khachhang.setLayout(new GridLayout(5,1));
+		JP_khachhang.setSize(140,200);
+		JP_khachhang.add(JT1);
+		JButton JB1 = new JButton();
+		JP_khachhang.add(JB1);
+		
+		
+		
+		
+		
+		
+		
+		this.setLayout(new BorderLayout());
+		this.add(JP_khachhang,BorderLayout.WEST);
+		
+	}
+
+}

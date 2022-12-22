@@ -1,0 +1,16 @@
+package GUI;
+
+import javax.swing.JFrame;
+
+public class TEST2 extends JFrame {
+	public TEST2() {
+		this.setTitle("TEST");
+		this.setSize(600,600);
+		this.setLocation(100,100);
+		this.setVisible(true);
+		
+	}
+	public static void main(String[] args) {
+		new TEST2();
+	}
+}
