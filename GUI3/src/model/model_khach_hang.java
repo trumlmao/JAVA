@@ -1,27 +1,47 @@
 package model;
 
 public class model_khach_hang {
-	private String name;
-	private double sdt;
-	private double cccd;
+	private String name,sdt,cccd;
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getSdt() {
+
+	public String getSdt() {
 		return sdt;
 	}
-	public void setSdt(double sdt) {
+
+	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
-	public double getCccd() {
+
+	public String getCccd() {
 		return cccd;
 	}
-	public void setCccd(double cccd) {
+
+	public void setCccd(String cccd) {
 		this.cccd = cccd;
 	}
+
+	public model_khach_hang() {
+		
+	}
+
+	public model_khach_hang(String name, String sdt, String cccd) {
+		this.name = name;
+		this.sdt = sdt;
+		this.cccd = cccd;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

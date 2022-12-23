@@ -1,9 +1,0 @@
-package model;
-
-public class model_khach_hang {
-	private String name;
-	private double sdt;
-	private double cccd;
-	
-
-}

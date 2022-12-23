@@ -1,15 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package test;
-import model.CounterModel;
-import view.CounterView;
 
+import view.StudentView;
+
+/**
+ *
+ * @author Than
+ */
 public class test {
-	public static void main(String[] args) {
-		CounterModel ct = new CounterModel();
-		ct.increment();
-		System.out.println(ct.getValue());
-		ct.decrement();
-		System.out.println(ct.getValue());
-		
-		CounterView ctv = new CounterView();
-	}
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        StudentView n = new StudentView();
+        
+    }
+    
 }

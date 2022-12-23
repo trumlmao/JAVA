@@ -1,0 +1,23 @@
+package view;
+
+import javax.swing.JFrame;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+public class JTREE  extends JFrame{
+	private JTree tree;
+	public JTREE() {
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
+		DefaultMutableTreeNode nhanvien = new DefaultMutableTreeNode("Nhan_vien");
+		nhanvien.add(new DefaultMutableTreeNode("NV_A"));
+		nhanvien.add(new DefaultMutableTreeNode("NV_B"));
+		nhanvien.add(new DefaultMutableTreeNode("NV_C"));
+		DefaultMutableTreeNode Quan_ly = new DefaultMutableTreeNode("Quan_ly");
+		Quan_ly.add(new DefaultMutableTreeNode("QL_A"));
+		root.add(nhanvien);
+		tree = new JTree(root);
+		add(tree);
+	
+	}
+	
+}

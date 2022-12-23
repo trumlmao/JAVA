@@ -1,0 +1,250 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import model.model_khach_hang;
+import model.phong;
+
+public class view extends JFrame{
+	private model_khach_hang model;
+	private javax.swing.JTextField JT_name;
+	private javax.swing.JTextField JT_cccd;
+	private javax.swing.JTextField JT_phong;
+	private javax.swing.JTextField JT_tinh_trang;
+	
+	public view() {
+		this.model = new model_khach_hang();
+		this.init();
+		this.setVisible(true);
+	}
+	public void init() {
+		
+		this.setTitle("Khach_Hang");
+		this.setSize(400,300);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	//JP_KHACHHANG 
+		//button
+		JPanel JP_but = new JPanel();
+		JButton JB_add = new JButton("Add");
+		JButton JB_save = new JButton("Save");
+		JP_but.add(JB_add);
+		JP_but.add(JB_save);
+		
+		//Nhap ten
+		JPanel JP_name = new JPanel();
+		JLabel JLB_name = new JLabel("NAME: ");	
+		JTextField JT_name = new JTextField(10);
+		JP_name.add(JLB_name);
+		JP_name.add(JT_name);
+		//nhap cccd
+		JPanel JP_cccd = new JPanel();
+		JLabel JLB_cccd = new JLabel("CCCD: ");
+		JTextField JT_cccd = new JTextField(10);
+		JP_cccd.add(JLB_cccd);
+		JP_cccd.add(JT_cccd);
+		
+		//nhap phong
+		JComboBox<Object> jComboBox_phong = new JComboBox<>();
+			jComboBox_phong.addItem("101");
+			jComboBox_phong.addItem("102");
+			jComboBox_phong.addItem("103");
+			jComboBox_phong.addItem("104");
+			jComboBox_phong.addItem("105");
+			jComboBox_phong.addItem("106");
+			jComboBox_phong.addItem("107");
+		JPanel JP_phongkhach = new JPanel();
+		JLabel JLB_phongkhach = new JLabel("PHONG: ");
+		
+		JComboBox<Object> JCB_tinh_trang = new JComboBox<>();
+			JCB_tinh_trang.addItem("dọn dẹp");
+			JCB_tinh_trang.addItem("Trống");
+			JCB_tinh_trang.addItem("Thuê");
+		JLabel JLB_tinh_trang = new JLabel("Trạng thái");	
+		JP_phongkhach.add(JLB_phongkhach);
+		JP_phongkhach.add(jComboBox_phong);
+		JP_phongkhach.add(JLB_tinh_trang);
+		JP_phongkhach.add(JCB_tinh_trang);
+		
+		
+		
+		//nhap menu
+		JMenuBar menubar = new JMenuBar();
+		setJMenuBar(menubar);
+		JMenu mnuSEV = new JMenu("SEV");
+		JMenu mnuSOM = new JMenu("SOME");
+		JMenu mnuJTREE = new JMenu("Jtree");
+		mnuJTREE.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("dd");
+				
+			}
+		});
+		menubar.add(mnuSEV);
+		menubar.add(mnuSOM);
+		JMenuItem mnuNhanvien = new JMenuItem("Khach hang");
+		JMenuItem mnuPhong = new JMenuItem("nhanvien");
+		JMenuItem exit = new JMenuItem("EXIT");
+		exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0){
+				System.exit(0);
+				};
+		});
+		
+		mnuSEV.add(mnuNhanvien);
+		mnuSEV.add(mnuPhong);
+		mnuSEV.add(mnuJTREE);
+		mnuSEV.add(exit);
+		
+		
+		//JTREE
+		JTree tree;
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
+		DefaultMutableTreeNode nhanvien = new DefaultMutableTreeNode("Nhan_vien");
+		nhanvien.add(new DefaultMutableTreeNode("NV_A"));
+		nhanvien.add(new DefaultMutableTreeNode("NV_B"));
+		nhanvien.add(new DefaultMutableTreeNode("NV_C"));
+		DefaultMutableTreeNode Quan_ly = new DefaultMutableTreeNode("Quan_ly");
+		Quan_ly.add(new DefaultMutableTreeNode("QL_A"));
+		root.add(nhanvien);
+		tree = new JTree(root);
+		
+		//Joptionpanel
+		
+		JB_add.addActionListener(new java.awt.event.ActionListener(){
+			
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				addActionPerformed(e);
+			}
+		});
+		
+		
+		
+		
+
+		//SHOW PHÒNG
+		JPanel JF_phong = new JPanel();
+		//sample data / table
+		String[][] data = {{"123","dọn dẹp"," "," "},{"124","trống"," ",""},{"125","Sử dụng","VĂN A","0001"}};
+		String[] colum = new String[]{"Phòng","Tình Trạng","Khách Hàng","CCCD"};
+		JTable JTB_table = new JTable(data,colum);
+		JF_phong.add(new JScrollPane(JTB_table));
+		
+		
+		String[][] data2 = {{"12321","dọn dẹp"," "," "},{"124","trống"," ",""},{"125","Sử dụng","VĂN A","0001"}};
+		String[] colum2 = new String[]{"Phòng","Tình Trạng","Khách Hàng","CCCD"};
+		JTable JTB_table3 = new JTable(data2,colum2);
+		
+		
+		//sample data / table
+		String[][] data1 = {{"123","dọn dẹp"," "," "},{"124","trống"," ",""},{"125","Sử dụng","VĂN A","0001"}};
+		String[] colum1 = new String[]{"Phòng","Tình Trạng","Khách Hàng","CCCD"};
+		JTable JTB_table2 = new JTable(data1,colum1);
+		
+		
+		DefaultTableModel dm = new DefaultTableModel();
+		
+		
+		//JP_khach hang North Layout set 
+		JPanel JP_khachhang = new JPanel();
+		JP_khachhang.setLayout(new GridLayout(4,1));
+		JP_khachhang.add(JP_phongkhach);
+		JP_khachhang.add(JP_name);
+		JP_khachhang.add(JP_cccd);
+		
+		JP_khachhang.add(JP_but);
+		
+		JPanel JP_khachhang1 = new JPanel();
+		JP_khachhang.setLayout(new GridLayout(4,1));
+		JP_khachhang.add(JP_phongkhach);
+		JP_khachhang.add(JP_name);
+		JP_khachhang.add(JP_cccd);
+		
+		JP_khachhang.add(JP_but);
+		
+		//JTAB
+				JTabbedPane tab1 = new JTabbedPane();
+					JPanel pntab1 = new JPanel();
+					
+					JPanel whs = new JPanel();
+					whs.add(JTB_table2);
+					pntab1.add(whs);
+					
+					
+					
+					
+					
+					
+					
+					JPanel pntab2 = new JPanel();
+					pntab2.add(JP_khachhang);
+					pntab2.add(JF_phong);
+					pntab2.setBackground(Color.BLUE);
+					
+					tab1.add(pntab1,"tab1");
+					tab1.add(pntab2,"tab 2");
+					
+				JPanel JP_tab = new JPanel();
+				JP_tab.add(tab1);
+				
+		//SET
+		
+		
+		
+		
+		
+		
+		
+		
+		this.setLayout(new BorderLayout());
+		//this.add(JP_khachhang,BorderLayout.WEST);
+		this.add(tab1,BorderLayout.CENTER);
+		this.add(tree,BorderLayout.WEST);
+		//this.add(JF_phong,BorderLayout.CENTER);
+		this.setJMenuBar(menubar);
+		this.pack();
+		
+	}
+	public void addActionPerformed(java.awt.event.ActionEvent e) {
+		model_khach_hang kh = new model_khach_hang();
+		kh.setName(JT_name.getText());
+		kh.setCccd(JT_cccd.getText());
+		phong phong = new phong();
+		phong.setSophong(JT_phong.getText());
+		phong.setTinh_trang(JT_tinh_trang.getText());
+		
+	}
+	public void demo() {
+		JFrame dialog = new JFrame("dialog");
+		JOptionPane.showMessageDialog(dialog, "JTREE","JTREE",JOptionPane.ERROR_MESSAGE);
+		
+	}
+	
+}
