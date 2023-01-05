@@ -129,7 +129,7 @@ public class view extends JFrame{
 		
 		
 		//JTREE
-		JTree tree;
+		/*JTree tree;
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
 		DefaultMutableTreeNode nhanvien = new DefaultMutableTreeNode("Nhan_vien");
 		nhanvien.add(new DefaultMutableTreeNode("NV_A"));
@@ -138,7 +138,7 @@ public class view extends JFrame{
 		DefaultMutableTreeNode Quan_ly = new DefaultMutableTreeNode("Quan_ly");
 		Quan_ly.add(new DefaultMutableTreeNode("QL_A"));
 		root.add(nhanvien);
-		tree = new JTree(root);
+		tree = new JTree(root);*/
 
 		
 		
@@ -149,7 +149,7 @@ public class view extends JFrame{
 		JPanel JF_phong = new JPanel();
 		//sample data / table
 		String[][] data = {{"123","dọn dẹp"," "," "},{"124","trống"," ",""},{"125","Sử dụng","VĂN A","0001"}};
-		String[] colum = new String[]{"Phòng","Tình Trạng","Khách Hàng","CCCD"};
+		String[] colum = new String[]{"Phòng","Tình Trạng","Khách Hàng","CCCD","ngay thue"};
 		JTable JTB_table = new JTable(data,colum);
 		JF_phong.add(new JScrollPane(JTB_table));
 		
@@ -257,9 +257,9 @@ public class view extends JFrame{
 		//SET
 		
 		this.setLayout(new BorderLayout());
-		//this.add(JP_khachhang,BorderLayout.WEST);
+		this.add(JP_khachhang,BorderLayout.WEST);
 		this.add(tab1,BorderLayout.CENTER);
-		this.add(tree,BorderLayout.WEST);
+		
 		//this.add(JF_phong,BorderLayout.CENTER);
 		this.setJMenuBar(menubar);
 		this.pack();
